@@ -5,10 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: Hello World Action Step
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Hello World Action
         id: hello
-        uses: ./  # Uses the action in the root directory
+        uses: ./    # <- uses the action.yml in repo root
         with:
-          who-to-greet: 'Mona the Octocat'
-      - name: Get the output time
+          who-to-greet: 'Vijal Dsouza'
+
+      - name: Get output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
